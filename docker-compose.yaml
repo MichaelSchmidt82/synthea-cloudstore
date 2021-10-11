@@ -1,0 +1,25 @@
+version: '3'
+
+networks:
+  default:
+    name: backend
+
+volumes:
+  synthea-data:
+  messages:
+
+services:
+  synthea:
+    image: synthea
+    container_name: synthea
+    build:
+      context: synthea
+      dockerfile: Dockerfile
+      args:
+        SYNTHEA_BRANCH: "${SYNTHEA_BRANCH:-master-branch-latest}"
+        SYNTHEA_FILE: "${SYNTHEA_FILE:-synthea-with-dependencies}"
+    environment:
+      NUMBER_OF_RECORDS: 500
+    volumes:
+      - synthea-data:/output/csv
+      - messages:/messages
