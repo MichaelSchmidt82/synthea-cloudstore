@@ -9,6 +9,17 @@ volumes:
   messages:
 
 services:
+
+  gs-etl:
+    image: gs-etl
+    container_name: gs-etl
+    build:
+      context: gs-etl
+      dockerfile: Dockerfile
+    volumes:
+      - synthea-data:/input
+      - messages:/messages
+
   synthea:
     image: synthea
     container_name: synthea
