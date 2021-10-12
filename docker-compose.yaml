@@ -16,6 +16,9 @@ services:
     build:
       context: gs-etl
       dockerfile: Dockerfile
+    environment:
+      - GCS_PATH=synthea
+      - BUCKET_NAME=aou-curation-omop-dev_transfer_fhir
     volumes:
       - synthea-data:/input
       - messages:/messages
