@@ -32,5 +32,5 @@ services:
     environment:
       NUMBER_OF_RECORDS: 500
     volumes:
-      - synthea-data:/output/csv
+      - synthea-data:/output
       - messages:/messages
