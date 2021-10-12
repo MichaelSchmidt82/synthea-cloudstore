@@ -5,7 +5,7 @@
             "type": "docker-run",
             "label": "docker-run: debug",
             "dependsOn": [
-                "docaker-build"
+                "docker-build"
             ],
             "python": {
                 "file": "entrypoint.py"
