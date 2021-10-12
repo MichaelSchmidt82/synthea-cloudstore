@@ -5,6 +5,9 @@ from google.cloud import storage
 
 
 def main():
+    """
+    Main entrypoint
+    """
 
     storage_client = storage.Client()
     bucket = storage_client.bucket(os.environ.get('BUCKET_NAME'))
@@ -28,10 +31,12 @@ def upload(path, bucket):
         if not os.path.isfile(local_file):
             upload(local_file, bucket)
             continue
-        remote_path = os.path.join(os.environ.get('GCS_PATH'), local_file[1 + len('/input') :])
+        remote_path = os.path.join(os.environ.get('GCS_PATH'),
+                                   local_file[1 + len('/input'):])
         blob = bucket.blob(remote_path)
         blob.upload_from_filename(local_file)
-        print(f'uploaded {local_file[len("/input"):]}')
+        print(f'uploaded {local_file[len("/input"):]}', flush=True)
+
 
 if __name__ == '__main__':
     main()
