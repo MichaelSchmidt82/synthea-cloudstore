@@ -9,7 +9,7 @@
             "python": {
                 "pathMappings": [
                     {
-                        "localRoot": "${workspaceFolder}/",
+                        "localRoot": "${workspaceFolder}/gs-etl",
                         "remoteRoot": "/usr/src/app"
                     }
                 ],
