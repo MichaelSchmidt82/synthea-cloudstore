@@ -3,6 +3,11 @@
 MSG=/messages/synthea
 CONFIG='synthea.properties'
 
+if test -f "$MSG"; then
+    echo "$MSG exists.  Skipping record generation"
+    exit 0
+fi
+
 touch $CONFIG
 echo "exporter.baseDirectory = /output" >> $CONFIG
 
@@ -47,9 +52,5 @@ if [ "${R4}" == "true" ]; then
   echo "exporter.practitioner.fhir.export = false" >> $CONFIG
 fi
 
-if test -f "$MSG"; then
-    echo "$MSG exists.  Skipping record generation"
-else
-    java -jar synthea-with-dependencies.jar -c $CONFIG -p $NUMBER_OF_RECORDS
-    touch "$MSG"
-fi
+java -jar synthea-with-dependencies.jar -c $CONFIG -p $NUMBER_OF_RECORDS
+touch "$MSG"
