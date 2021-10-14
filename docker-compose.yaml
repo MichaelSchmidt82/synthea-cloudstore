@@ -33,7 +33,7 @@ services:
         SYNTHEA_BRANCH: "${SYNTHEA_BRANCH:-master-branch-latest}"
         SYNTHEA_FILE: "${SYNTHEA_FILE:-synthea-with-dependencies}"
     environment:
-      CSV: "True"
+      CSV: "False"
       CCDA: "True"
       DSTU2: "True"
       STU3: "True"
