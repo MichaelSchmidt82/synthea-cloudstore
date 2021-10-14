@@ -31,6 +31,7 @@ def main():
         return 1
 
     upload('/input', bucket)
+    os.remove('/messages/synthea')
     return 0
 
 
@@ -45,6 +46,7 @@ def upload(path, bucket):
         #* local_file is a folder. Recurse into that folder
         if not os.path.isfile(local_file):
             upload(local_file, bucket)
+            os.rmdir(local_file)
             continue
 
         #* local_file is a file.  Create a path and attempt to upload the file
@@ -61,6 +63,7 @@ def upload(path, bucket):
             continue
 
         print(f'uploaded {local_file[len("/input"):]}', flush=True)
+        os.remove(local_file)
 
 
 if __name__ == '__main__':
