@@ -12,13 +12,16 @@ ARG SYNTHEA_FILE="synthea-with-dependencies"
 #* Environmental variables
 ENV SYNTHEA_FILE=${SYNTHEA_FILE}
 ENV SYNTHEA_BRANCH=${SYNTHEA_BRANCH}
+
 ENV NUMBER_OF_RECORDS=100
+ENV CSV=True
+ENV CCDA=True
+ENV DSTU2=True
+ENV STU3=True
+ENV R4=True
 
 #* Download Synthea
 RUN wget --quiet "https://github.com/synthetichealth/synthea/releases/download/${SYNTHEA_BRANCH}/${SYNTHEA_FILE}.jar"
-
-#* Copy required configuration file
-COPY ./synthea.properties ./
 
 #* Execution
 COPY entrypoint.sh entrypoint.sh
