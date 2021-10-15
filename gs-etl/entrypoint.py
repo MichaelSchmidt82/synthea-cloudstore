@@ -62,7 +62,7 @@ def upload(path, bucket):
                   flush=True)
             continue
 
-        print(f'uploaded {local_file[len("/input"):]}', flush=True)
+        print(f'uploaded {remote_path}', flush=True)
         os.remove(local_file)
 
 
