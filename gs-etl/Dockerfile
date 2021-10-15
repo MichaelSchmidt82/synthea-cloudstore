@@ -11,4 +11,5 @@ ENV BUCKET_NAME='aou-curation-omop-dev_transfer_fhir'
 
 COPY . .
 
-CMD [ "python", "./entrypoint.py" ]
+ENTRYPOINT [ "python" ]
+CMD ["./entrypoint.py" ]
