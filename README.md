@@ -3,11 +3,9 @@ This Docker stack will generate and upload synthetic health record data to a Goo
 - `gs-etl` is the loader process used to load data to a Google Cloud Storage bucket.  It requires a service account access key (credentials.json). Instructions on obtaining credentials are available [here](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 - `synthea` generates synthetic health record data.
 
----
 ## Usage:
 `docker-compose up`
 
----
 ## Configuration options:
 
 ### gs-etl
