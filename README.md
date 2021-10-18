@@ -21,7 +21,7 @@ This Docker stack will generate and upload synthetic health record data to a Goo
 - CSV
     - Export raw CSVs.  The CSVs will be stored in a folder labeled "csv".
 - CCDA
-    - Export in CCDA format.  The output files are in R4 format spec and placed in a folder labeled "ccda".
+    - Export in CCDA format.  The output files follow the R4 format specification and are placed in a folder labeled "ccda".
 - DTSU2
     - Export in DSTU2 format.  Files are stored in a folder labeled "fhir_dstu2".
 - STU3
